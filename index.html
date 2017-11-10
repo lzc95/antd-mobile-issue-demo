@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="renderer" content="webkit">
+        <meta charset="utf-8">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+        <meta content="telephone=no,email=no" name="format-detection">
+        <title>GAME APP</title>
+        <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+        <script>
+            if ('addEventListener' in document) {
+                document.addEventListener('DOMContentLoaded', function () {
+                    FastClick.attach(document.body);
+                }, false);
+            }
+            if (!window.Promise) {
+                document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' +
+                    '>' + '<' + '/' + 'script>');
+            }
+        </script>
+        <style>
+            #noscript { font-size: 18px; font-weight: bold; text-align: center; position: fixed; left: 50%; top: 50%; margin: -50px 0 0 -290px; box-shadow: 0px 0px 0px 9999px #333; padding: 20px; border-radius: 6px; background: #d4d4d4; }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <div id="noscript">你的浏览器不支持或者禁用JavaScript功能。请在设置选项中打开该功能。</div>
+        </noscript>
+        <div id='app'></div>
+    </body>
+</html>
