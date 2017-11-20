@@ -1,30 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Toast, Tabs, Drawer, WhiteSpace, List, NavBar, Icon, Button } from 'antd-mobile';
-import { StickyContainer, Sticky } from 'react-sticky';
-import { injectGlobal } from 'styled-components';
-
-function showToast() {
-    Toast.info('This is a toast tips !!!', 1);
-}
-
-function renderTabBar(props) {
-    return (
-        <Sticky>
-        {({ style }) => <div style={{ ...style, zIndex: 1, top: 50 }}><Tabs.DefaultTabBar {...props} /></div>}
-        </Sticky>
-    );
-}
-const tabs = [
-    { title: 'First Tab' },
-    { title: 'Second Tab' },
-    { title: 'Third Tab' },
-];
+import { Button, NavBar, WhiteSpace, WingBlank } from 'antd-mobile';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import styled, { injectGlobal } from 'styled-components';
+import TabsSticky from './TabsSticky';
+import Toast from './Toast';
+import MoneyInput from './MoneyInput';
+import ButtonExample from './Button';
+import PopoverExample from './Popover';
+import Version from '../package.json';
 
 class App extends React.Component {
-    state = {
-        open: false,
-    }
 
     componentDidMount() {
         injectGlobal`
@@ -41,61 +27,58 @@ class App extends React.Component {
         `;
     }
 
-
-    onOpenChange = (...args) => {
-        console.log(args);
-        this.setState({ open: !this.state.open });
-    }
     render() {
-        const sidebar = (
-            <List>
-                {[...Array(20).keys()].map((i, index) => {
-                    if (index === 0) {
-                        return (<List.Item key={index}
-                            thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-                            multipleLine
-                        >Category</List.Item>);
-                    }
-                    return (<List.Item key={index}
-                        thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-                    >Category{index}</List.Item>);
-                })}
-            </List>
-        );
-
         return (
             <div>
-                <StickyContainer>
-                    <Sticky>
-                        {({ style }) => <div style={{ ...style, zIndex: 1 }}><NavBar icon={<Icon type="ellipsis" />} style={{ ...style, zIndex: 1 }} onLeftClick={this.onOpenChange}>Basic</NavBar></div>}
-                    </Sticky>
-                    <Drawer
-                        style={{ minHeight: document.documentElement.clientHeight }}
-                        enableDragHandle
-                        sidebar={sidebar}
-                        open={this.state.open}
-                        onOpenChange={this.onOpenChange}
-                    >
-                        <WhiteSpace />
-                            <Tabs tabs={tabs} initalPage={'t2'} renderTabBar={renderTabBar}>
-                                {
-                                    Array(3).fill(0).map((v, k) => (
-                                        <div style={{ backgroundColor: '#fff' }} key={k}>
-                                        <Button type='primary' onClick={showToast}>Toast</Button>
-                                            {++k}{Array(200).fill(0).map((vv, key) => <p key={key}>{key}</p>)}
-                                        </div>
-                                    ))
-                                }
-                            </Tabs>
-                        <WhiteSpace />
-                        {Array(200).fill(0).map((vv, key) => <p key={key}>{key}</p>)}
-                    </Drawer>
-                </StickyContainer>
+            <Router>
+                <div>
+                    <NavBar mode='dark'><Link to='/' style={{ color: 'white' }}>Back</Link></NavBar>
+                    <Route
+                        exact
+                        path='/'
+                        render={() => {
+                            return (
+                                <ListWrap>
+                                    <li><Link to='/tabsSticky'>TabsSticky </Link></li>
+                                    <li><Link to='/toast'>Toast 无法正常显示</Link></li>
+                                    <li><Link to='/moneyInput'>金额键盘的确定按钮 Disabled 的颜色未跟随主题色改变</Link></li>
+                                    <li><Link to='/buttonLoading'>按钮 Loading 时，期望为 Disabled, 不可点击</Link></li>
+                                    <li><Link to='/popover'>Popover 隐藏后 Dom 未删除</Link></li>
+                                </ListWrap>
+                            );
+                        }}
+                    />
+                    <Route path='/tabsSticky' component={TabsSticky} />
+                    <Route path='/toast' component={Toast} />
+                    <Route path='/moneyInput' component={MoneyInput} />
+                    <Route path='/buttonLoading' component={ButtonExample} />
+                    <Route path='/popover' component={PopoverExample} />
+                    <VersionWrap>
+                        {JSON.stringify(Version.dependencies, ['react', 'antd', 'antd-mobile'], 2)}
+                    </VersionWrap>
+                </div>
+                </Router>
             </div>
         );
     }
 }
 
+const ListWrap = styled.ul`
+    font-size: 16px;
+    padding: 20px;
+    list-style-type: decimal;
+    > li {
+        padding: 4px 0;
+    }
+`;
+
+const VersionWrap = styled.pre`
+    margin: 20px;
+    background: #eee;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+`;
 
 const hook = document.getElementById('app');
 render(<App />, hook);

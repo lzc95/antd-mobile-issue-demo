@@ -1,9 +1,9 @@
-# Antd-test-demo
+# Antd-mobile-issue-demo
 
-## Install
+## Install & Usage
 
 ```
 yarn
 yarn dev
-open localhost:8686
+open localhost:3333
 ```

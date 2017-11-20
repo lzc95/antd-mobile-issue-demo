@@ -11,15 +11,15 @@ const ROOT_PATH = path.join(__dirname);
 const APP_PATH = path.join(ROOT_PATH, 'app');
 const BUILD_PATH = path.join(ROOT_PATH, 'build');
 const NM_PATH = path.join(ROOT_PATH, 'node_modules');
-const PORT = 8686;
+const PORT = 3333;
 
 module.exports = {
     entry: {
         libs: ['react-redux', 'redux', 'babel-polyfill', 'immutable', 'redux-saga'],
         app: [
-            'react-hot-loader/patch',
-            `webpack-dev-server/client?http://localhost:${PORT}`,
-            'webpack/hot/only-dev-server',
+            // 'react-hot-loader/patch',
+            // `webpack-dev-server/client?http://localhost:${PORT}`,
+            // 'webpack/hot/only-dev-server',
             `${APP_PATH}/index.dev`,
         ],
     },
