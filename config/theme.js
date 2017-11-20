@@ -1,6 +1,7 @@
 const hd = 1;
 module.exports = {
 	'brand-primary': '#1DA57A',
+	'keyboard-confirm-tap-color': '#1DA57A',
 	'primary-button-fill-tap': '#198f6c',
 	'modal-font-size-heading': `${15 * hd}px`,
 	'modal-button-font-size': `${16 * hd}px`,

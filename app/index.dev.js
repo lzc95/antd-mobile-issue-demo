@@ -1,11 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Button, NavBar, WhiteSpace, WingBlank } from 'antd-mobile';
+import { NavBar, } from 'antd-mobile';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled, { injectGlobal } from 'styled-components';
 import TabsSticky from './TabsSticky';
 import Toast from './Toast';
-import MoneyInput from './MoneyInput';
 import ButtonExample from './Button';
 import PopoverExample from './Popover';
 import Version from '../package.json';
@@ -41,7 +40,6 @@ class App extends React.Component {
                                 <ListWrap>
                                     <li><Link to='/tabsSticky'>TabsSticky </Link></li>
                                     <li><Link to='/toast'>Toast 无法正常显示</Link></li>
-                                    <li><Link to='/moneyInput'>金额键盘的确定按钮 Disabled 的颜色未跟随主题色改变</Link></li>
                                     <li><Link to='/buttonLoading'>按钮 Loading 时，期望为 Disabled, 不可点击</Link></li>
                                     <li><Link to='/popover'>Popover 隐藏后 Dom 未删除</Link></li>
                                 </ListWrap>
@@ -50,7 +48,6 @@ class App extends React.Component {
                     />
                     <Route path='/tabsSticky' component={TabsSticky} />
                     <Route path='/toast' component={Toast} />
-                    <Route path='/moneyInput' component={MoneyInput} />
                     <Route path='/buttonLoading' component={ButtonExample} />
                     <Route path='/popover' component={PopoverExample} />
                     <VersionWrap>
