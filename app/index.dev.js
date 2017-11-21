@@ -28,29 +28,29 @@ class App extends React.Component {
     render() {
         return (
             <div>
-            <Router>
-                <div>
-                    <NavBar mode='dark'><Link to='/' style={{ color: 'white' }}>Back</Link></NavBar>
-                    <Route
-                        exact
-                        path='/'
-                        render={() => {
-                            return (
-                                <ListWrap>
-                                    <li><Link to='/toast'>Toast 无法正常显示</Link></li>
-                                    <li><Link to='/buttonLoading'>按钮 Loading 时，期望为 Disabled, 不可点击</Link></li>
-                                    <li><Link to='/popover'>Popover 隐藏后 Dom 未删除</Link></li>
-                                </ListWrap>
-                            );
-                        }}
-                    />
-                    <Route path='/toast' component={Toast} />
-                    <Route path='/buttonLoading' component={ButtonExample} />
-                    <Route path='/popover' component={PopoverExample} />
-                    <VersionWrap>
-                        {JSON.stringify(Version.dependencies, ['react', 'antd', 'antd-mobile'], 2)}
-                    </VersionWrap>
-                </div>
+                <Router>
+                    <div>
+                        <NavBar mode='dark'><Link to='/' style={{ color: 'white' }}>Back</Link></NavBar>
+                        <Route
+                            exact
+                            path='/'
+                            render={() => {
+                                return (
+                                    <ListWrap>
+                                        <li><Link to='/toast'>Toast 无法正常显示</Link></li>
+                                        <li><Link to='/buttonLoading'>按钮 Loading 时，期望为 Disabled, 不可点击</Link></li>
+                                        <li><Link to='/popover'>Popover 隐藏后 Dom 未删除</Link></li>
+                                    </ListWrap>
+                                );
+                            }}
+                        />
+                        <Route path='/toast' component={Toast} />
+                        <Route path='/buttonLoading' component={ButtonExample} />
+                        <Route path='/popover' component={PopoverExample} />
+                        <VersionWrap>
+                            {JSON.stringify(Version.dependencies, ['react', 'antd', 'antd-mobile'], 2)}
+                        </VersionWrap>
+                    </div>
                 </Router>
             </div>
         );

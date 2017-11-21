@@ -1,6 +1,6 @@
 import React from 'react';
 import { WhiteSpace, WingBlank, Button } from 'antd-mobile';
-import { Button as AntdButton } from 'antd';
+// import { Button as AntdButton } from 'antd';
 
 
 class ToastExample extends React.Component {
@@ -10,7 +10,7 @@ class ToastExample extends React.Component {
                 <WhiteSpace />
                 <Button type='warning' loading onClick={() => alert('antd-mobile')}>Antd-mobile Button</Button>
                 <WhiteSpace />
-                <AntdButton type='primary' loading onClick={() => alert('antd')}>Antd Button</AntdButton>
+                {/* <AntdButton type='primary' loading onClick={() => alert('antd')}>Antd Button</AntdButton> */}
             </WingBlank>
         );
     }

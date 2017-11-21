@@ -2,7 +2,7 @@ import React from 'react';
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function loadingToast() {
-    Toast.loading('Loading...', 1, () => {
+    Toast.loading('Loading...', 15, () => {
         console.log('Load complete !!!');
     });
 }

@@ -48,10 +48,6 @@ module.exports = {
                 }],
             },
             {
-                test: /\.ts?$/,
-                loaders: ['babel-loader', 'ts-loader'],
-            },
-            {
                 test: /\.css$/,
                 include: APP_PATH,
                 use: [
@@ -78,7 +74,7 @@ module.exports = {
                     'postcss-loader'
                 ],
             },
-            { test: /\.(svg)$/i, use: 'svg-sprite-loader', include: svgDirs },
+            // { test: /\.(svg)$/i, use: 'svg-sprite-loader', include: svgDirs },
         ],
     },
 
