@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile-issue-demo",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "main": "app/index.dev.js",
   "scripts": {
     "dev": "webpack-dev-server"
@@ -28,13 +28,13 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
-    "antd-mobile": "^2.0.3",
+    "antd": "^3.0.2",
+    "antd-mobile": "^2.1.2",
     "express": "^4.15.2",
     "less": "^2.7.2",
-    "prop-types": "^15.5.10",
     "rc-form": "1.4.8",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-router-dom": "^4.1.2",
     "react-sticky": "^6.0.1",
     "styled-components": "^2.1.0"

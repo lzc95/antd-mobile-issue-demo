@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const theme = require('./config/theme');
-const svgDirs = require('./config/svg');
 
 const ROOT_PATH = path.join(__dirname);
 const APP_PATH = path.join(ROOT_PATH, 'app');
@@ -12,9 +11,7 @@ const PORT = 3333;
 
 module.exports = {
     entry: {
-        app: [
-            `${APP_PATH}/index.dev`,
-        ],
+        app: `${APP_PATH}/index.dev`,
     },
 
     output: {
@@ -74,7 +71,6 @@ module.exports = {
                     'postcss-loader'
                 ],
             },
-            // { test: /\.(svg)$/i, use: 'svg-sprite-loader', include: svgDirs },
         ],
     },
 
