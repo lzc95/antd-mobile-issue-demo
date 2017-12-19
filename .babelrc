@@ -6,12 +6,17 @@
         "react"
     ],
     "plugins": [
-        ["import", [{
-                "libraryName": "antd",
-                "style": true
-            },{
-                "libraryName": "antd-mobile",
-            }]
+        [
+            "import", [
+                {
+                    "libraryName": "antd-mobile",
+                    "style": true
+                },
+                {
+                    "libraryName": "antd",
+                    "style": true
+                }
+            ]
         ],
         "transform-decorators-legacy"
     ]
